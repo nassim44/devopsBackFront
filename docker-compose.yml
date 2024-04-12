@@ -15,7 +15,7 @@ services:
 
   frontimage:
     build: ./DevOps_Project_Front
-    image: "zeineb1710/devops_project_Front:1.0"
+    image: "zeineb1710/devops_project_front:1.0"
     ports:
       - "4200:4200"
 
