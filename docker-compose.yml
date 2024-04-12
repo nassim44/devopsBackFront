@@ -2,7 +2,7 @@ version: "2.2"
 services:
 
   backdimage:
-    image: "nassimbenali/zeineb1710/devops_project:1.0"
+    image: "zeineb1710/devops_project:1.0"
     build: ./DevOps_Project
     ports:
       - "8082:8082"
