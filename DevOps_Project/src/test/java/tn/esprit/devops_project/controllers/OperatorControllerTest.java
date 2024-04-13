@@ -35,7 +35,7 @@ class OperatorControllerTest {
 
 
     @Test
-    public void testRetrieveAllOperators() {
+     void testRetrieveAllOperators() {
         List<Operator> expectedOperators = Arrays.asList(
                 new Operator(1L, "Operator A","A","nassim123", new HashSet<>()),
                 new Operator(2L, "Operator B","B","nassim123", new HashSet<>())

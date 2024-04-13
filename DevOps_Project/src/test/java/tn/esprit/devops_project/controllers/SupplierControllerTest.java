@@ -37,7 +37,7 @@ class SupplierControllerTest {
 
 
     @Test
-    public void testGetSuppliers() {
+     void testGetSuppliers() {
         List<Supplier> expectedSuppliers = Arrays.asList(
                 new Supplier(1L, "Operator A","A", SupplierCategory.ORDINAIRE, new HashSet<>()),
                 new Supplier(2L, "Operator B","B",SupplierCategory.CONVENTIONNE, new HashSet<>())
