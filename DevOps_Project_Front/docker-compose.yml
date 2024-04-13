@@ -3,6 +3,6 @@ services:
 
   nexusdevopsimage:
     build: ./
-    image: "172.17.0.1:8083/nexusdevopsimage:1.0"
+    image: "nexusdevopsimage:1.0"
     ports:
       - "8083:8083"
