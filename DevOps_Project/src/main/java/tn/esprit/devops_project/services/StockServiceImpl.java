@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
+
 public class StockServiceImpl implements IStockService {
 
    private final StockRepository stockRepository;
