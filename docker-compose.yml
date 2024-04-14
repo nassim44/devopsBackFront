@@ -13,6 +13,11 @@ services:
     volumes:
       - .m2:/root/.m2
 
+  frontimage:
+    build: ./DevOps_Project_Front
+    image: "zeineb1710/devops_project_front-1.0"
+    ports:
+      - "5000:5000"
   
 
   mysql:
