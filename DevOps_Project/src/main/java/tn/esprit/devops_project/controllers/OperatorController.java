@@ -28,7 +28,7 @@ public class OperatorController {
 		return operatorService.addOperator(operator);
 	}
 
-	@DeleteMapping("/operator/{operatorId}")
+	@DeleteMapping("/operatot/{operatorId}")
 	public void removeOperator(@PathVariable Long operatorId) {
 		operatorService.deleteOperator(operatorId);
 	}
