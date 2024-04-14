@@ -1,8 +1,9 @@
-FROM node:16-alpine AS build
-WORKDIR /src/app
-COPY package*.json ./
-RUN npm install --force
+FROM node:latest as node
+WORKDIR /app
 COPY . .
-RUN npm run build
+RUN npm install --force
+RUN npm run build --prod
 EXPOSE 4200
-CMD ["npm", "start"]
+
+FROM nginx:alpine
+COPY --from=node /app/dist/summer-workshop-angular /usr/share/nginx/html
