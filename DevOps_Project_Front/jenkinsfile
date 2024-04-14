@@ -1,28 +1,14 @@
 pipeline {
     agent any
 
-    stages {
-        stage('git') {
+     stage('Install dependencies') {
             steps {
-                echo 'Pulling'
-                    git branch: 'zeineb',
-                    url: 'https://github.com/nassim44/devopsBackFront.git'
-            }
-        }
-        
-        stage('Install dependencies') {
-            steps {
-                dir('DevOps_Project_Front/'){
-               sh 'rm -rf node_modules/'
-            echo 'Setting npm configurations...'
-            sh 'npm config set strict-ssl true'
-            sh 'npm config set registry https://registry.npmjs.org/'
-            echo 'Installing dependencies...'
+         
             sh 'npm install'
 
                 }
             }
-        }
+        
        /* stage('Unit test') {
             steps {
                 dir('DevOps_Project_Front/'){
@@ -32,9 +18,8 @@ pipeline {
         }*/
         stage('Build application') {
             steps {
-                dir('DevOps_Project_Front/'){
                 sh'npm run build'
-                }
+                
             }
         }
        /*  stage('sonarqube') {
