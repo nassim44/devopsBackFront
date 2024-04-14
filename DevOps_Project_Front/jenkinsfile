@@ -1,0 +1,115 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git') {
+            steps {
+                echo 'Pulling'
+                    git branch: 'zeineb',
+                    url: 'https://github.com/nassim44/devopsBackFront.git'
+            }
+        }
+        
+        stage('Install dependencies') {
+            steps {
+                dir('DevOps_Project_Front/'){
+               sh 'rm -rf node_modules/'
+            echo 'Setting npm configurations...'
+            sh 'npm config set strict-ssl true'
+            sh 'npm config set registry https://registry.npmjs.org/'
+            echo 'Installing dependencies...'
+            sh 'npm install'
+
+                }
+            }
+        }
+       /* stage('Unit test') {
+            steps {
+                dir('DevOps_Project_Front/'){
+                sh "npm test"
+                }
+            }
+        }*/
+        stage('Build application') {
+            steps {
+                dir('DevOps_Project_Front/'){
+                sh'npm run build'
+                }
+            }
+        }
+       /*  stage('sonarqube') {
+              
+            steps {
+                 dir('DevOps_Project/'){
+               sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar' 
+                 }
+            }
+        }
+      
+        stage('JUnit/Mockito') {
+            steps {
+                dir('DevOps_Project/'){
+               sh 'mvn test' 
+                }
+            }
+        }
+       stage('nexus') {
+            steps {
+                dir('DevOps_Project/'){
+                sh "mvn deploy"
+                }
+            }
+        }
+       
+        stage('Docker Image') {
+            steps {
+                dir('DevOps_Project/'){
+                sh "docker build -t devops_project-1.0 ."
+                }
+            }
+        }
+        
+          stage('Docker Hub') {
+            steps {
+                dir('DevOps_Project/'){
+                sh"docker login -u zeineb1710 -p 201Jft3257"
+                sh"docker tag devops_project-1.0 zeineb1710/devops_project-1.0"
+                sh "docker push zeineb1710/devops_project-1.0"
+                }
+            }
+        }
+    
+         stage('Run Docker Compose') {
+            steps {
+                sh"docker compose up -d"
+               
+            }
+        }
+       
+        
+         stage('Grafana') {
+            steps {
+                script {
+                   // sh "curl -f -u admin:grafana http://192.168.50.4:3000 || (echo 'Grafana is not up!' && exit 1)"
+                   // Check Grafana's health without login
+                    sh "curl -f http://192.168.50.4:3000/api/health "
+
+                    // Check Prometheus's health without login
+                    sh "curl -f http://192.168.50.4:9090/-/healthy "
+                }
+            }
+        }
+      */
+        
+     
+        
+        
+        
+     
+        
+      
+        
+        
+       
+    }
+}
