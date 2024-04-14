@@ -1,0 +1,9 @@
+version: "2.2"
+services:
+  stockfront:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "ghribisirine/stockfront:latest"
+    ports:
+      - "4200:4200"
